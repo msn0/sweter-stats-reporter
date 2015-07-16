@@ -19,10 +19,9 @@ describe('Custom reporter', function () {
 
   it('should display formatted result', function () {
     reporter.push(0, {
-      "A": "foo",
-      "B": "bar"
+      "domInteractive": 2100
     });
 
-    assert.equal('{"A":"foo","B":"bar"}\n', this.out);
+    assert.equal(this.out, "{\"domInteractive\":{\"median\":2.1}}\n");
   });
 });

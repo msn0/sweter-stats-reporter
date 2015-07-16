@@ -1,15 +1,28 @@
 'use strict';
 
-var foo;
+var median = require('stats-median');
+var metrics = [];
+var result = {};
 
-var promisePush = function (data, resolve) {
-  console.log(JSON.stringify(data.metrics));
+function getMedian() {
+  return median.calc(metrics.map(function (metric) {
+    return 1 * (metric.domInteractive / 1000).toFixed(2);
+  }));
+}
+
+function promisePush(data, resolve) {
+  metrics.push(data.metrics);
+  result.domInteractive = {
+    median: getMedian()
+  };
+  console.log(JSON.stringify(result));
   resolve();
+}
+
+module.exports.init = function () {
 };
 
-module.exports.init = function (options) {
-  foo = options.foo;
-};
+
 
 module.exports.push = function (timestamp, metrics) {
   return new Promise(promisePush.bind(this, {

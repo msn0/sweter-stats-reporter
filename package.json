@@ -19,5 +19,8 @@
   ],
   "devDependencies": {
     "mocha": "^2.2.4"
+  },
+  "dependencies": {
+    "stats-median": "^1.0.0"
   }
 }
