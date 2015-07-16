@@ -1,0 +1,23 @@
+{
+  "name": "sweter-stats-reporter",
+  "version": "0.1.0",
+  "description": "Stats reporter for sweter",
+  "author": {
+    "name": "Michał Jezierski",
+    "email": "ambinanitelo@gmail.com"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "engines": {
+    "node": ">=0.12.0"
+  },
+  "repository": "msn0/sweter-stats-reporter",
+  "license": "Apache-2.0",
+  "files": [
+    "index.js"
+  ],
+  "devDependencies": {
+    "mocha": "^2.2.4"
+  }
+}
