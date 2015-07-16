@@ -17,5 +17,5 @@ $ npm install sweter-custom-reporter
 Simply pass `sweter-stats-reporter` name via ``--custom-reporter``
 
 ```
-$ sweter google.com --custom-reporter sweter-stats-reporter
+$ sweter google.com --custom-reporter sweter-stats-reporter --runs 600
 ```

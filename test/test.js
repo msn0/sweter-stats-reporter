@@ -3,7 +3,7 @@
 var assert = require('assert');
 var reporter = require('../');
 
-describe('Custom reporter', function () {
+describe('Stats reporter', function () {
 
   beforeEach(function () {
     this.log = console.log;
@@ -19,9 +19,13 @@ describe('Custom reporter', function () {
 
   it('should display formatted result', function () {
     reporter.push(0, {
-      "domInteractive": 2100
+      "domInteractive": 2100,
+      "domComplete": 4300
     });
 
-    assert.equal(this.out, "{\"domInteractive\":{\"median\":2.1}}\n");
+    assert.equal(this.out,
+      "{\"domInteractive\":{\"median\":2.1}," +
+      "\"domComplete\":{\"median\":4.3}}" +
+      "\n");
   });
 });

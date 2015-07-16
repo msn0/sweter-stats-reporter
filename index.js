@@ -2,18 +2,22 @@
 
 var median = require('stats-median');
 var metrics = [];
-var result = {};
 
-function getMedian() {
+function getMedianFor(type) {
   return median.calc(metrics.map(function (metric) {
-    return 1 * (metric.domInteractive / 1000).toFixed(2);
+    return metric[type] / 1000;
   }));
 }
 
 function promisePush(data, resolve) {
   metrics.push(data.metrics);
-  result.domInteractive = {
-    median: getMedian()
+  var result = {
+    domInteractive: {
+      median: getMedianFor("domInteractive").toFixed(2) * 1
+    },
+    domComplete: {
+      median: getMedianFor("domComplete").toFixed(2) * 1
+    }
   };
   console.log(JSON.stringify(result));
   resolve();
@@ -21,7 +25,6 @@ function promisePush(data, resolve) {
 
 module.exports.init = function () {
 };
-
 
 
 module.exports.push = function (timestamp, metrics) {
