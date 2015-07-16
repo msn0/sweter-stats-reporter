@@ -1,17 +1,21 @@
-# Sweter custom reporter
+# Stats reporter for Sweter
 
-This project refers to ``sweter`` and shows how to write custom reporters. If you are not familiar with ``sweter`` then take a look at https://github.com/msn0/sweter first.
+This project refers to ``sweter``. If you are not familiar with ``sweter`` then take a look at https://github.com/msn0/sweter first.
 
-## The Example
+`sweter-stats-reporter` reports `domInteractive`'s median and p95. 
 
-Simply pass node module name via ``--custom-reporter``
+## Installation
+
+`sweter-stats-reporter` requires `sweter` to be installed. `sudo npm install -g sweter` does the job! 
+
+```sh
+$ npm install sweter-custom-reporter
+```
+
+## Usage
+
+Simply pass `sweter-stats-reporter` name via ``--custom-reporter``
 
 ```
-$ sweter http://google.com --custom-reporter my-reporter
-```
-
-Extra params can be passed like that
-
-```
-$ sweter http://google.com --custom-reportermy-reporter --my-reporter-foo bar
+$ sweter google.com --custom-reporter sweter-stats-reporter
 ```
