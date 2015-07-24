@@ -13,6 +13,9 @@ function promisePush(data, resolve) {
   metrics.push(data.metrics);
   var result = {
     date: new Date().toISOString(),
+    timeToFirstByte: {
+      median: getMedianFor("timeToFirstByte").toFixed(2) * 1
+    },
     domInteractive: {
       median: getMedianFor("domInteractive").toFixed(2) * 1
     },
