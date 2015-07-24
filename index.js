@@ -30,6 +30,13 @@ function promisePush(data, resolve) {
 module.exports.init = function () {
 };
 
+module.exports.finalize = function () {
+  metrics = [];
+};
+
+module.exports.getMetrics = function () {
+  return metrics;
+};
 
 module.exports.push = function (timestamp, metrics) {
   return new Promise(promisePush.bind(this, {
