@@ -12,6 +12,7 @@ function getMedianFor(type) {
 function promisePush(data, resolve) {
   metrics.push(data.metrics);
   var result = {
+    date: new Date().toISOString(),
     domInteractive: {
       median: getMedianFor("domInteractive").toFixed(2) * 1
     },

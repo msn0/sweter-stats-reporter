@@ -24,6 +24,7 @@ describe('Stats reporter', function () {
     });
     var output = JSON.parse(this.out);
 
+    assert(output.date);
     assert.equal(2.1, output.domInteractive.median);
     assert.equal(4.3, output.domComplete.median);
 
