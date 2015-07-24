@@ -22,10 +22,10 @@ describe('Stats reporter', function () {
       "domInteractive": 2100,
       "domComplete": 4300
     });
+    var output = JSON.parse(this.out);
 
-    assert.equal(this.out,
-      "{\"domInteractive\":{\"median\":2.1}," +
-      "\"domComplete\":{\"median\":4.3}}" +
-      "\n");
+    assert.equal(2.1, output.domInteractive.median);
+    assert.equal(4.3, output.domComplete.median);
+
   });
 });
